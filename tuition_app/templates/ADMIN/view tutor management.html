@@ -1,0 +1,48 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_search_tutors_post/">
+{% csrf_token %}
+<centre>
+Tutor name<input name="txt1" type="text" />
+<input name="search" type="submit" value="search" />
+
+<table width="200" border="1">
+  <tr>
+    <th scope="col">SL NO</th>
+    <th scope="col">Tutor name</th>
+    <th scope="col">Place</th>
+    <th scope="col">Contact number</th>
+    <th scope="col">Photo</th>
+    <th scope="col">Email</th>
+
+    <th scope="col">EDIT</th>
+       <th scope="col">DELETE</th>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{ forloop.counter }}&nbsp;</td>
+    <td>{{ i.tutorname }}&nbsp;</td>
+    <td>&nbsp;{{ i.place }}</td>
+    <td>&nbsp;{{ i.contactno }}</td>
+    <td>&nbsp;<img src="{{ i.photo }}" width="50" height="50"> </td>
+    <td>&nbsp;{{ i.email }}</td>
+
+    <td>&nbsp;<a href="/myapp/adm_update_tutor/{{ i.pk }}">EDIT</a></td>
+    <td>&nbsp;<a href="/myapp/adm_view_tutor_del/{{ i.pk }}">DELETE</a></td>
+  </tr>
+    {% endfor %}
+
+</table>
+</centre>
+</form>
+</body>
+</html>
+{% endblock %}

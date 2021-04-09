@@ -1,0 +1,47 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<centre>
+  <table width="521" height="110" border="1">
+  <tr>
+    <th scope="col" rowspan="2">&nbsp;Sl no</th>
+    <th scope="col"  rowspan="2">Class name</th>
+    <th scope="col" rowspan="2">Batch name</th>
+    <th scope="col" colspan="2">&nbsp;Year</th>
+     <th scope="col" rowspan="2">&nbsp;Edit</th>
+      <th scope="col" rowspan="2">Delete&nbsp;</th>
+  </tr>
+  <tr>
+
+
+    <th width="74" scope="col">From</th>
+    <th width="83" scope="col">To</th>
+
+
+  </tr>
+      {% for i in res %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.CLASS.classname }}</td>
+    <td>{{ i.batchname }}&nbsp;</td>
+    <td>&nbsp;{{ i.fromdate }}</td>
+    <td>&nbsp;{{ i.todate }}</td>
+  <td><a href="/myapp/adm_update_batch/{{ i.pk }}">Edit</a></td>
+  <td><a href="/myapp/adm_view_batch_del/{{ i.pk }}">Delete</a></td>
+  </tr>
+      {% endfor %}
+
+</table>
+</centre>
+</form>
+</body>
+</html>
+{% endblock %}

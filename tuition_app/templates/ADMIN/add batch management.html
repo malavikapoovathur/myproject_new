@@ -1,0 +1,45 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_add_batch/">
+ {% csrf_token %}
+<centre>
+  <table border="2">
+  <tr><th width="106">Class name:</th><th colspan="2">
+      <select name="class">
+          {% for i in res %}
+              <option value="{{ i.pk }}">{{ i.classname }}</option>
+          {% endfor %}
+      </select></th></tr>
+    <tr>
+      <th><p>Batch name:</p></th>
+      <th colspan="2"><p>
+        <input name="batch" type="text" />
+      </p></th>
+    </tr>
+    <tr>
+      <th> <p>Year: </p></th>
+      <th width="109"><p> From:
+        <input type="date" name="from">
+        &nbsp;</p></th>
+      <th width="81"><p>To:
+       <input type="date" name="to">
+      </p>
+      </th>
+    </tr>
+    
+     <tr><th colspan="3"> <input name="input" type="submit" value="save" />
+    </th></tr>
+  </table>
+</centre>
+</form>
+</body>
+</html>
+{% endblock %}

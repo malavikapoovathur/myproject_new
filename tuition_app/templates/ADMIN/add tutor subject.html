@@ -1,0 +1,30 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_add_tutors_subject_post/">
+
+<table border="2">
+  <tr><th><p>Tutor name:</p></th><th>
+    <select name="tutor">
+        {% for i in res %}
+            <option value="{{ i.pk }}">{{ i.tutorname }}</option>
+        {% endfor %}
+    </select></th></tr>
+  <tr><th><p>Batch:</p></th><th><select name="batch">
+      {% for i in res1 %}
+          <option value="{{ i.pk }}">{{ i.batchname }}</option>
+      {% endfor %}
+  </select></th></tr>
+  <tr><th><p>Subject:</p></th><th><select name="subject">
+      {% for i in res2 %}
+          <option value="{{ i.pk }}">{{ i.subject }}</option>
+      {% endfor %}
+  </select></th></tr>
+  <tr><th colspan="2"><p><input name="" type="submit" value="Add" /></p></th></tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

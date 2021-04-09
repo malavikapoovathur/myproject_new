@@ -1,0 +1,48 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_search_attendence_of_tutors_post/">
+
+<table>
+<tr><th>From date:<input name="fromdate" type="date" /></th>
+<th>To date:<input name="todate" type="date" /></th>
+    <th><input type="submit" name="button"></th>
+</tr>
+</table>
+<table width="200" border="1">
+  <tr>
+    <th scope="col">Sl no</th>
+     <th scope="col">Date</th>
+    <th scope="col">Tutor</th>
+    <th scope="col">Batch</th>
+     <th scope="col">Subject</th>
+      <th scope="col">Total hours</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td>&nbsp;{{ i.TUTOR.tutorname }}</td>
+    <td>&nbsp;{{ i.SUBJECT.BATCH.batchname }}</td>
+    <td>{{ i.SUBJECT.subject }}&nbsp;</td>
+    <td>{{ i.classhour }}&nbsp;</td>
+    <td><a href="/myapp/adm_update_tutors_attendence/{{ i.pk }}">Edit</a></td>
+    <td><a href="/myapp/adm_view_attendence_of_tutors_del/{{ i.pk }}">Delete</a></td>
+  </tr>
+    {% endfor %}
+
+</table>
+
+</form>
+</body>
+</html>
+{% endblock %}

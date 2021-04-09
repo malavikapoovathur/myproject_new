@@ -1,0 +1,57 @@
+
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_add_student/" enctype="multipart/form-data">
+<table>
+ <tr><th> <p>Student name:</p></th>
+    <th><input name="name" type="text" />
+  </p></th></tr>
+   <tr><th><p>Place:</p></th><th><input name="place" type="text" /></p></th></tr>
+   <tr><th><p>Post:</p></th><th><input name="pin" type="text" /></p></th></tr>
+   <tr><th><p>Pin:</p></th><th><input name="district" type="text" /></p></th></tr>
+   <tr><th><p>Gender:</p></th><th><input name="gender" type="radio" value="Male" />Male<input name="gender" type="radio" value="Female" />Female</th></tr>
+
+   <tr><th><p>District:</p></th><th>
+       <select name="district">
+      <option value="calicut">Calicut</option>
+ <option value="kannur">Kannur</option>
+       <option value="kasargod">Kasargod</option>
+       <option value="malapuram">Malappuram</option>
+       <option value="wayanad">Wayanad</option>
+       <option value="thrissur">Thrissur</option>
+       <option value="thiruvanthapuram">Thiruvanathapuram</option>
+       <option value="kochi">Kochi</option>
+       <option value="alappuzha">Alappuzha</option>
+       <option value="kottayam">Kottayam</option>
+       <option value="pathanamitta">Pathanamthitta</option>
+       <option value="idukki">Idukki</option>
+       <option value="kollam">Kollam</option>
+ </th></tr>
+   </select></p></th></tr>
+    <tr><th>Photo:</th><th><input type="file" name="photo" id="fileField" /></th></tr>
+   <tr><th><p>DOB:</p></th><th><input name="dob" type="date" /></p></th></tr>
+   <tr><th><P>Contact number:</p></th><th><input name="contact" type="text" /></P></th></tr>
+   <tr><th><p>Email:</p></th><th><input name="email" type="text" /></p></th></tr>
+   <tr><th><p>Parent name:</p></th><th><input name="parentname" type="text" /></p></th></tr>
+   <tr><th><p>Relationship:</p></th><th><input name="relationship" type="text" /></p></th></tr>
+   <tr><th><p>Parent phone number:</p></th><th><input name="parentphno" type="text" /></p></th></tr>
+   <tr><th><p>Parent email id:</p></th><th><input name="parentemailid" type="text" /></p></th></tr>
+
+   <tr><th><p>Batch:</p></th><th><select name="batch">
+       {% for i in res %}
+         <option value="{{ i.pk }}">{{ i.batchname }}</option>
+       {% endfor %}
+       </select></th></tr>
+   <tr><th colspan="2"><p><input name="" type="submit" value="Add" /></p></th></tr></table>
+</form>
+</body>
+</html>
+{% endblock %}

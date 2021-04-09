@@ -1,0 +1,45 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<table>
+  <tr>
+
+  <th><p>Batch:</p></th><th><select name=""></select> 
+     </p></th>
+  <th><p><input name="" type="button" value="search" /></p></th></table>
+  <p><table width="200" border="1">
+  <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Tutor name</th>
+    <th scope="col">Batch</th>
+    <th scope="col">Allocated subject</th>
+    
+
+    <th scope="col">Delete</th>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>{{ i.TUTOR.tutorname }}&nbsp;</td>
+    <td>{{ i.SUBJECT.BATCH.batchname }}&nbsp;</td>
+    <td>{{ i.SUBJECT.subject }}&nbsp;</td>
+
+    <td>&nbsp;<a href="/myapp/adm_view_tutors_subject_del/{{ i.pk }}">Delete</a></td>
+
+  </tr>
+    {% endfor %}
+
+</table>
+</p>
+</form>
+</body>
+</html>
+{% endblock %}

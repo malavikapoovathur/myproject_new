@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form1" id="form1" method="post" action="">
+    <table border="2">
+       <tr><th>Tutor:</th><th><select name="tutor">
+          {% for i in res %}
+              <option value="{{ i.pk }}">{{ i.tutorname }}</option>
+           {% endfor %}
+       </select></th></tr>
+        <tr><th>Subject:</th><th><select name="subject">
+          {% for i in res2 %}
+              <option value="{{ i.pk }}">{{ i.subject }}:{{ i.BATCH.batchname }}</option>
+            {% endfor %}
+        </select></th></tr>
+{#        <tr><th>Batch:</th><th><select name="batch">#}
+{#            {% for i in res1 %}#}
+{#                <option value="{{ i.pk }}">{{ i.batchname }}</option>#}
+{#            {% endfor %}#}
+{#        </select></th></tr>#}
+        <tr><th>Date:</th><th><input type="date" name="datez"></th></tr>
+        <tr><th>Class hour:</th><th><input type="text" name="hourz"></th></tr>
+        <tr><th><input name="" type="submit" value="Add" /></th></tr>
+    </table>
+</form>
+
+</body>
+</html>

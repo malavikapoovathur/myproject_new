@@ -1,0 +1,27 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_add_vacancy/">
+<table border="2">
+  <tr><th><p>Subject:</th><th><select name="subject">
+        {% for i in res %}
+          <option value="{{ i.pk }}">{{ i.subject }}</option>
+        {% endfor %}
+  </select></p></th></tr>
+  <tr><th><p>Total no.of vaccancy:</th><th><input type="text" name="vaccancy"></th></tr>
+  <tr><th><p>Other info:</th><th>
+    <textarea name="textarea" cols="" rows=""></textarea>
+  </th></tr>
+ <tr><th colspan="2"> <p><input name="" type="submit" value="Add" />
+  </p></th></tr></table>
+</form>
+</body>
+</html>
+{% endblock %}

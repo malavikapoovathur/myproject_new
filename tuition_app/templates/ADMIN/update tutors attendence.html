@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name="form1" id="form1" method="post" action="/myapp/adm_update_tutors_attendence_post/">
+    <table border="2">
+       <tr><th>Tutor:</th><th><select name="tutor">
+       <option value="{{ data.TUTOR.pk }}">{{ data.TUTOR.tutorname }}</option>
+        {% for i in res %}
+              <option value="{{ i.pk }}">{{ i.tutorname }}</option>
+        {% endfor %}
+       </select></th></tr>
+        <tr><th>Subject:Batch</th><th><select name="subject">
+         <option value="{{ data.SUBJECT.pk }}">{{ data.SUBJECT.subject }}:{{ data.SUBJECT.BATCH.batchname }}</option>
+            {% for i in res2 %}
+              <option value="{{ i.pk }}">{{ i.subject }}:{{ i.BATCH.batchname }}</option>
+            {% endfor %}
+        </select></th></tr>
+{#        <tr><th>Batch:</th><th><select name="batch">#}
+{#           <option value="{{ data.SUBJECT.BATCH.pk }}"></option>#}
+{#        </select></th></tr>#}
+        <tr><th>Date:</th><th><input type="date" name="datez" value="{{ data.date }}"></th></tr>
+        <tr><th>Class hour:</th><th><input type="text" name="hourz" value="{{ data.classhour }}"></th></tr>
+        <tr><th><input name="" type="submit" value="Update" /></th></tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_update_vacancy_post/">
+<table border="2">
+
+
+  <tr><th><p>Total no.of vaccancy:</th><th><input type="text" name="vaccancy" value="{{ data.totalnoofvaccancy }}"></th></tr>
+    <tr><th><p>Other info:</th><th><input type="text" name="otherinfo" style="width:200px;height: 50px;" value="{{ data.otherinfo }}"></th></tr>
+
+  <tr><th colspan="2"><p><input name="" type="submit" value="Update" /></th></tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

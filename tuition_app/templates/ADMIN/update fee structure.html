@@ -1,0 +1,25 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/adm_update_fee_structure_post/">
+{% csrf_token %}
+<table border="2">
+
+{# <tr><th> <p>Batch:</p></th><th><select name="batch">#}
+{#     {% for i in res %}#}
+{#         <option value="{{ i.pk }}">{{ i.batchname }}</option>#}
+{#     {% endfor %}#}
+{#    </select></th></tr>#}
+    <tr><th><p>Fees:</p></th><th><input type="text" name="fees" value="{{ data.fees }}"></th></tr>
+    <tr><th colspan="2"><p><input name="" type="submit" value="Update"/></p></th></tr></table>
+</form>
+</body>
+</html>
+{% endblock %}

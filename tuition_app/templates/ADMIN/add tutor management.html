@@ -1,0 +1,66 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+
+<body>
+<form action="/myapp/adm_add_tutor/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+    <centre>
+<table>
+<tr><th>
+Tutorname:</th><th>
+  <input name="nam" type="text" />
+  </th></tr>
+ <tr><th> Place:
+   </th><th> <input name="place" type="text" /></th></tr>
+  
+ <tr><th> Post:
+ </th><th> <input name="post" type="text" /></th></tr>
+ <tr><th> Pin
+ </th><th> <input name="pin" type="text" /></th></tr>
+ 
+  <tr><th>District:
+  </th><th><select name="district">
+      <option value="calicut">Calicut</option>
+ <option value="kannur">Kannur</option>
+       <option value="kasargod">Kasargod</option>
+       <option value="malapuram">Malappuram</option>
+       <option value="wayanad">Wayanad</option>
+       <option value="thrissur">Thrissur</option>
+       <option value="thiruvanthapuram">Thiruvanathapuram</option>
+       <option value="kochi">Kochi</option>
+       <option value="alappuzha">Alappuzha</option>
+       <option value="kottayam">Kottayam</option>
+       <option value="pathanamitta">Pathanamthitta</option>
+       <option value="idukki">Idukki</option>
+       <option value="kollam">Kollam</option>
+  </select></th></tr>
+  
+  <tr><th>Contact number: 
+  </th><th><input name="contact" type="text" /></th></tr>
+ <tr><th> Email:
+  </th><th> <input name="email" type="text" /></th></tr>
+ 
+  <tr><th> Gender:
+  </th><th><input name="gender" type="radio" value="Male" />Male<input name="gender" type="radio" value="Female" />Female</th></tr>
+ 
+ <tr><th> Qualification
+ </th><th> <input name="qualification" type="checkbox" value="DEGREE" />DEGREE
+  <input name="qualification" type="checkbox" value="PG" />PG</th></tr>
+ <tr><th>Photo:</th><th><input type="file" name="photo" id="fileField" /></th></tr>
+    <tr><th>Dob:</th><th><input type="date" name="dob"></th></tr>
+    <tr><th>Experience:</th><th><input type="experience" name="experience"></th></tr>
+  <tr><th colspan="2"><input name="ADD" type="submit" value="Add" /></th></tr>
+
+  </table>
+    </centre>
+</form>
+</body>
+</html>
+{% endblock %}
