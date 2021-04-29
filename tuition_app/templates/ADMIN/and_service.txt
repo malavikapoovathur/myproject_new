@@ -1,0 +1,30 @@
+def and_cat_view_all(request):
+    res2=[]
+    ma=category.objects.all()
+    for ii in ma:
+        ss={'id':ii.pk,'category':ii.category}
+        res2.append(ss)
+        
+    data = {"status": "ok","res2":res2}
+    return JsonResponse(data)
+    
+def and_mem_cat_add(request):
+    if request.method == "POST":
+        print("lll")
+        lid = request.POST['lid']
+        cat=request.POST["cat"]
+        print("ppp")
+        aa = login.objects.get(id=lid)
+
+        mmss = normalmember.objects.get(LOGIN=aa)
+        mk=category.objects.get(id=cat)
+        import datetime
+        yy = datetime.datetime.now().strftime("%Y-%m-%d")
+
+        a1 = membercategory(NORMALMEMBER=mmss, CATEGORY=mk,datee=yy)
+        a1.save()
+
+        data = {"status": "ok"}
+
+
+    return JsonResponse(data)
