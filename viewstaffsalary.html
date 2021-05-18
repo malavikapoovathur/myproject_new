@@ -1,0 +1,77 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/admiviewsalaryreport/">
+ {% csrf_token %}
+
+  <table class="pull-left">
+  <tr>
+
+      <th>Year</th>
+      <th>
+
+          <select name="year" class="form-control">
+
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+
+          </select>
+
+
+      </th>
+
+      <th> Month </th>
+      <th>
+        <select name="month" class="form-control">
+            <option value="1">January</option>
+            <option value="2">Februvary</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">Novemeber</option>
+            <option value="12">Decemeber</option>
+        </select>
+      </th>
+      <th><input name="input" type="submit" value="save" class=" btn btn-primary"  style="width:60; height:40;"/></th>
+      </tr>
+  </table>
+
+    <br/>
+    <br/>
+    <br/>
+
+ <table class="table table-bordered">
+     <tr>
+     <th>#</th>
+     <th>Tutor Name</th>
+     <th>Email</th>
+     <th>Phone</th>
+     <th>Salary</th>
+     <th>Date</th>
+     </tr>
+
+     {% for i in data %}
+     <tr>
+        <td width="50px">{{ forloop.counter }}</td>
+        <td>{{ i.TUTOR.tutorname }}</td>
+        <td>{{ i.TUTOR.email }}</td>
+        <td>{{ i.TUTOR.contactno }}</td>
+        <td>{{ i.salary }}</td>
+        <td>{{ i.date }}</td>
+     </tr>
+
+
+     {% endfor %}
+ </table>
+
+
+
+</form>
+
+
+{% endblock %}

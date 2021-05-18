@@ -1,0 +1,89 @@
+package com.example.tution_app;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class custom_student_view_testresult extends BaseAdapter {
+    private android.content.Context Context;
+    String [] testname,subject,mark,date;
+    String url = "";
+
+
+    public custom_student_view_testresult(android.content.Context applicationContext, String[] testname, String[] subject, String[] mark, String[] date) {
+
+        this.Context = applicationContext;
+        this.testname = testname;
+        this.subject = subject;
+        this.mark = mark;
+        this.date = date;
+
+    }
+
+    @Override
+    public int getCount() {
+        return testname.length;
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertview, ViewGroup parent) {
+
+
+        LayoutInflater inflator = (LayoutInflater) Context.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE);
+
+        View gridView;
+        if (convertview == null) {
+            gridView = new View(Context);
+            gridView = inflator.inflate(R.layout.custom_student_view_testresult, null);
+
+
+        } else {
+            gridView = (View) convertview;
+
+        }
+
+
+        TextView tvdate = (TextView) gridView.findViewById(R.id.textView78);
+        TextView tvsubject = (TextView) gridView.findViewById(R.id.textView79);
+        TextView tvtestname = (TextView) gridView.findViewById(R.id.textView80);
+        TextView tvmark = (TextView) gridView.findViewById(R.id.textView81);
+
+        tvdate.setText(date[position]);
+        tvsubject.setText(subject[position]);
+        tvtestname.setText(testname[position]);
+        tvmark.setText(mark[position]);
+
+        return gridView;
+    }
+}
