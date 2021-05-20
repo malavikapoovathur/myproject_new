@@ -1,0 +1,30 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+<table class="table table-bordered">
+  <tr>
+    <th  scope="col">#</th>
+    <th  scope="col">Date</th>
+    <th  scope="col">Tutor name</th>
+    <th  scope="col">EMail</th>
+    <th  scope="col">Reason for leave</th>
+    <th scope="col">Status</th>
+
+  </tr>
+ {% for i in leaveall %}
+  <tr>
+    <td>{{ forloop.counter }}&nbsp;</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td>&nbsp;{{ i.TUTOR.tutorname }}</td>
+    <td>&nbsp;{{ i.TUTOR.email }}</td>
+    <td>{{ i.reasonforleave }}&nbsp;</td>
+    <td>{{ i.status }}&nbsp;</td>
+
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+
+{% endblock %}

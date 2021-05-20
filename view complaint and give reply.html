@@ -1,0 +1,34 @@
+{% extends 'admin_index.html'  %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+<table class="table table-bordered">
+  <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Student name</th>
+    <th scope="col">Class</th>
+    <th scope="col">Batch</th>
+    <th scope="col">Complaint</th>
+    <th scope="col">Date</th>
+    <th scope="col">Status</th>
+    <th scope="col"></th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td width="50px"> {{ forloop.counter }}&nbsp;</td>
+    <td>{{ i.STUDENT.studentname }}&nbsp;</td>
+    <td>{{ i.STUDENT.BATCH.CLASS.classname }}&nbsp;</td>
+     <td>{{ i.STUDENT.BATCH.batchname }}&nbsp;</td>
+    <td>{{ i.complaint }}&nbsp;</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td>{{ i.status }}&nbsp;</td>
+      <td><a href="/myapp/adminviewsinglereply/{{ i.pk }}" class="btn btn-success">Reply</a></td>
+  </tr>
+    {% endfor %}
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</form>
+
+{% endblock %}
